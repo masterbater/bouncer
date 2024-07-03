@@ -22,7 +22,7 @@ trait HasRoles
     public static function bootHasRoles()
     {
         static::deleted(function ($model) {
-            if (! Helpers::isSoftDeleting($model)) {
+            if (!Helpers::isSoftDeleting($model)) {
                 $model->roles()->detach();
             }
         });
@@ -57,7 +57,7 @@ trait HasRoles
     /**
      * Assign the given roles to the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string|array  $roles
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|array  $roles
      * @return $this
      */
     public function assign($roles)
@@ -70,7 +70,7 @@ trait HasRoles
     /**
      * Retract the given roles from the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string|array  $roles
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|array  $roles
      * @return $this
      */
     public function retract($roles)

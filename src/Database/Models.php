@@ -231,7 +231,7 @@ class Models
     /**
      * Get an instance of the user model.
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \MongoDB\Laravel\Eloquent\Model
      */
     public static function user(array $attributes = [])
     {
@@ -269,7 +269,7 @@ class Models
      * Get an instance of the given model.
      *
      * @param  string  $model
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \MongoDB\Laravel\Eloquent\Model
      */
     protected static function make($model, array $attributes = [])
     {

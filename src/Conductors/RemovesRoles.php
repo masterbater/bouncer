@@ -29,7 +29,7 @@ class RemovesRoles
     /**
      * Remove the role from the given authority.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|array|int  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|array|int  $authority
      * @return void
      */
     public function from($authority)

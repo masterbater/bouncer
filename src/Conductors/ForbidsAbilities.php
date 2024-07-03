@@ -9,7 +9,7 @@ class ForbidsAbilities
     /**
      * The authority to be forbidden from the abilities.
      *
-     * @var \Illuminate\Database\Eloquent\Model|string|null
+     * @var \MongoDB\Laravel\Eloquent\Model|string|null
      */
     protected $authority;
 
@@ -23,7 +23,7 @@ class ForbidsAbilities
     /**
      * Constructor.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $authority
      */
     public function __construct($authority = null)
     {

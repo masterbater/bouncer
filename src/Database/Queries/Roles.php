@@ -53,7 +53,7 @@ class Roles
      * Constrain the given roles query to those that were assigned to the given authorities.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  string|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
+     * @param  string|\MongoDB\Laravel\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
      * @return void
      */
     public function constrainWhereAssignedTo($query, $model, ?array $keys = null)
@@ -67,7 +67,7 @@ class Roles
             $roles = Models::table('roles');
 
             $query->from($table)
-                ->join($pivot, $key, '=', $pivot.'.entity_id')
+                ->join($pivot, $key, '=', $pivot . '.entity_id')
                 ->whereColumn("{$pivot}.role_id", "{$roles}.id")
                 ->where("{$pivot}.entity_type", $model->getMorphClass())
                 ->whereIn($key, $keys);

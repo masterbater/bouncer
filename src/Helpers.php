@@ -30,7 +30,7 @@ class Helpers
     /**
      * Extract the model instance and model keys from the given parameters.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|string  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|string  $model
      * @return array
      */
     public static function extractModelAndKeys($model, ?array $keys = null)

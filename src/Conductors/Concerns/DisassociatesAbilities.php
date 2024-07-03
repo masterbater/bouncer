@@ -14,7 +14,7 @@ trait DisassociatesAbilities
      * Remove the given ability from the model.
      *
      * @param  mixed  $abilities
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $entity
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $entity
      * @return bool|\Silber\Bouncer\Conductors\Lazy\ConductsAbilities
      */
     public function to($abilities, $entity = null, array $attributes = [])
@@ -33,7 +33,7 @@ trait DisassociatesAbilities
     /**
      * Detach the given IDs from the authority.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|null  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|null  $authority
      * @return void
      */
     protected function disassociateAbilities($authority, array $ids)
@@ -99,7 +99,7 @@ trait DisassociatesAbilities
     /**
      * Get the authority from which to disassociate the abilities.
      *
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return \MongoDB\Laravel\Eloquent\Model|null
      */
     protected function getAuthority()
     {

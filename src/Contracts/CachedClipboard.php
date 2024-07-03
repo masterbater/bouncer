@@ -32,7 +32,7 @@ interface CachedClipboard extends Clipboard
     /**
      * Clear the cache.
      *
-     * @param  null|\Illuminate\Database\Eloquent\Model  $authority
+     * @param  null|\MongoDB\Laravel\Eloquent\Model  $authority
      * @return $this
      */
     public function refresh($authority = null);

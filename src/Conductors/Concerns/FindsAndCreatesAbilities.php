@@ -14,8 +14,8 @@ trait FindsAndCreatesAbilities
     /**
      * Get the IDs of the provided abilities.
      *
-     * @param  \Illuminate\Database\Eloquent\model|array|int  $abilities
-     * @param  \Illuminate\Database\Eloquent\Model|string|array|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|array|int  $abilities
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|array|null  $model
      * @return array
      */
     protected function getAbilityIds($abilities, $model = null, array $attributes = [])
@@ -81,7 +81,7 @@ trait FindsAndCreatesAbilities
      * Get the abilities for the given model ability descriptors.
      *
      * @param  array|string  $abilities
-     * @param  \Illuminate\Database\Eloquent\Model|string|array  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|array  $model
      * @return array
      */
     protected function getModelAbilityKeys($abilities, $model, array $attributes)
@@ -101,7 +101,7 @@ trait FindsAndCreatesAbilities
      * Get an ability for the given entity.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string  $entity
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $entity
      * @return \Silber\Bouncer\Database\Ability
      */
     protected function getModelAbility($ability, $entity, array $attributes)
@@ -117,7 +117,7 @@ trait FindsAndCreatesAbilities
      * Find the ability for the given entity.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string  $entity
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $entity
      * @param  array  $attributes
      * @return \Silber\Bouncer\Database\Ability|null
      */
@@ -137,7 +137,7 @@ trait FindsAndCreatesAbilities
      * Create an ability for the given entity.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string  $entity
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $entity
      * @param  array  $attributes
      * @return \Silber\Bouncer\Database\Ability
      */
@@ -151,8 +151,8 @@ trait FindsAndCreatesAbilities
     /**
      * Get an instance of the given model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
-     * @return \Illuminate\Database\Eloquent\Model|string
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $model
+     * @return \MongoDB\Laravel\Eloquent\Model|string
      */
     protected function getEntityInstance($model)
     {

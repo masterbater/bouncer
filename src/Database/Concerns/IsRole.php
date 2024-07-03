@@ -58,7 +58,7 @@ trait IsRole
     /**
      * Assign the role to the given model(s).
      *
-     * @param  string|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
+     * @param  string|\MongoDB\Laravel\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
      * @return $this
      */
     public function assignTo($model, ?array $keys = null)
@@ -182,7 +182,7 @@ trait IsRole
     /**
      * Retract the role from the given model(s).
      *
-     * @param  string|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
+     * @param  string|\MongoDB\Laravel\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
      * @return $this
      */
     public function retractFrom($model, ?array $keys = null)
@@ -224,7 +224,7 @@ trait IsRole
      * Constrain the given query to roles that were assigned to the given authorities.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  string|\Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
+     * @param  string|\MongoDB\Laravel\Eloquent\Model|\Illuminate\Database\Eloquent\Collection  $model
      * @return void
      */
     public function scopeWhereAssignedTo($query, $model, ?array $keys = null)

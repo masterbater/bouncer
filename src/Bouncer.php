@@ -60,7 +60,7 @@ class Bouncer
     /**
      * Start a chain, to allow the given authority an ability.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $authority
      * @return \Silber\Bouncer\Conductors\GivesAbilities
      */
     public function allow($authority)
@@ -81,7 +81,7 @@ class Bouncer
     /**
      * Start a chain, to disallow the given authority an ability.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $authority
      * @return \Silber\Bouncer\Conductors\RemovesAbilities
      */
     public function disallow($authority)
@@ -102,7 +102,7 @@ class Bouncer
     /**
      * Start a chain, to forbid the given authority an ability.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $authority
      * @return \Silber\Bouncer\Conductors\GivesAbilities
      */
     public function forbid($authority)
@@ -123,7 +123,7 @@ class Bouncer
     /**
      * Start a chain, to unforbid the given authority an ability.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $authority
      * @return \Silber\Bouncer\Conductors\RemovesAbilities
      */
     public function unforbid($authority)
@@ -166,7 +166,7 @@ class Bouncer
     /**
      * Start a chain, to sync roles/abilities for the given authority.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $authority
      * @return \Silber\Bouncer\Conductors\SyncsRolesAndAbilities
      */
     public function sync($authority)

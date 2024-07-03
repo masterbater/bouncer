@@ -13,14 +13,14 @@ class SyncsRolesAndAbilities
     /**
      * The authority for whom to sync roles/abilities.
      *
-     * @var \Illuminate\Database\Eloquent\Model|string
+     * @var \MongoDB\Laravel\Eloquent\Model|string
      */
     protected $authority;
 
     /**
      * Constructor.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $authority
      */
     public function __construct($authority)
     {
@@ -92,7 +92,7 @@ class SyncsRolesAndAbilities
     /**
      * Get (and cache) the authority for whom to sync roles/abilities.
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \MongoDB\Laravel\Eloquent\Model
      */
     protected function getAuthority()
     {
@@ -114,7 +114,7 @@ class SyncsRolesAndAbilities
     {
         $model = Models::ability();
 
-        return $model->getTable().'.'.$model->getKeyName();
+        return $model->getTable() . '.' . $model->getKeyName();
     }
 
     /**
@@ -173,7 +173,8 @@ class SyncsRolesAndAbilities
             );
 
         return Models::scope()->applyToRelationQuery(
-            $query, $relation->getTable()
+            $query,
+            $relation->getTable()
         );
     }
 

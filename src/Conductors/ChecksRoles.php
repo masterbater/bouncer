@@ -10,7 +10,7 @@ class ChecksRoles
     /**
      * The authority against which to check for roles.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var \MongoDB\Laravel\Eloquent\Model
      */
     protected $authority;
 

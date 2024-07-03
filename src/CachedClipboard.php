@@ -63,7 +63,7 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
      * Determine if the given authority has the given ability, and return the ability ID.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return int|bool|null
      */
     public function checkGetId(Model $authority, $ability, $model = null)
@@ -97,8 +97,8 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
      *
      * @param  \Illuminate\Support\Collection  $abilities
      * @param  \Illuminate\Support\Collection  $applicable
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  \Illuminate\Database\Eloquent\Model  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model  $authority
      * @return int|null
      */
     protected function findMatchingAbility($abilities, $applicable, $model, $authority)
@@ -139,7 +139,7 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
      * Compile a list of ability identifiers that match the provided parameters.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return \Illuminate\Support\Collection
      */
     protected function compileAbilityIdentifiers($ability, $model)
@@ -159,7 +159,7 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
      * Compile a list of ability identifiers that match the given model.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $model
      * @return array
      */
     protected function compileModelAbilityIdentifiers($ability, $model)
@@ -251,7 +251,7 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
     /**
      * Clear the cache.
      *
-     * @param  null|\Illuminate\Database\Eloquent\Model  $authority
+     * @param  null|\MongoDB\Laravel\Eloquent\Model  $authority
      * @return $this
      */
     public function refresh($authority = null)

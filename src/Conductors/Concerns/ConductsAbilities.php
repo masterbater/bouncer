@@ -21,7 +21,7 @@ trait ConductsAbilities
     /**
      * Allow/disallow all abilities on the given model.
      *
-     * @param  string|array|\Illuminate\Database\Eloquent\Model  $models
+     * @param  string|array|\MongoDB\Laravel\Eloquent\Model  $models
      * @return void
      */
     public function toManage($models, array $attributes = [])
@@ -76,7 +76,7 @@ trait ConductsAbilities
             return true;
         }
 
-        if (! is_array($abilities) || ! Helpers::isIndexedArray($abilities)) {
+        if (!is_array($abilities) || !Helpers::isIndexedArray($abilities)) {
             return false;
         }
 

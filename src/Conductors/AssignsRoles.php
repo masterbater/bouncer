@@ -28,7 +28,7 @@ class AssignsRoles
     /**
      * Assign the roles to the given authority.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|array|int  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|array|int  $authority
      * @return bool
      */
     public function to($authority)
@@ -131,7 +131,7 @@ class AssignsRoles
      */
     protected function getAttachRecordHash(array $record)
     {
-        return $record['role_id'].$record['entity_id'].$record['entity_type'];
+        return $record['role_id'] . $record['entity_id'] . $record['entity_type'];
     }
 
     /**

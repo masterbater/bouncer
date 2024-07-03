@@ -111,7 +111,7 @@ class Guard
     /**
      * Run the gate's "before" callback.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model  $authority
      * @param  string  $ability
      * @param  mixed  $arguments
      * @param  mixed  $additional
@@ -135,7 +135,7 @@ class Guard
     /**
      * Run the gate's "before" callback.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model  $authority
      * @param  string  $ability
      * @param  mixed  $result
      * @param  array  $arguments
@@ -164,7 +164,7 @@ class Guard
      * Run an auth check at the clipboard.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return mixed
      */
     protected function checkAtClipboard(Model $authority, $ability, $model)

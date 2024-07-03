@@ -13,8 +13,8 @@ trait AssociatesAbilities
     /**
      * Associate the abilities with the authority.
      *
-     * @param  \Illuminate\Database\Eloquent\model|array|int|string  $abilities
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|array|int|string  $abilities
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return \Silber\Bouncer\Conductors\Lazy\ConductsAbilities|null
      */
     public function to($abilities, $model = null, array $attributes = [])
@@ -31,7 +31,7 @@ trait AssociatesAbilities
     /**
      * Get the authority, creating a role authority if necessary.
      *
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return \MongoDB\Laravel\Eloquent\Model|null
      */
     protected function getAuthority()
     {
@@ -49,7 +49,7 @@ trait AssociatesAbilities
     /**
      * Get the IDs of the associated abilities.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|null  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model|null  $authority
      * @return array
      */
     protected function getAssociatedAbilityIds($authority, array $abilityIds)

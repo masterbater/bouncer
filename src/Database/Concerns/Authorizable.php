@@ -11,7 +11,7 @@ trait Authorizable
      * Determine if the authority has a given ability.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|null  $model
      * @return bool
      */
     public function can($ability, $model = null)
@@ -25,19 +25,19 @@ trait Authorizable
      * Determine if the authority does not have a given ability.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|null  $model
      * @return bool
      */
     public function cant($ability, $model = null)
     {
-        return ! $this->can($ability, $model);
+        return !$this->can($ability, $model);
     }
 
     /**
      * Determine if the authority does not have a given ability.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|null  $model
      * @return bool
      */
     public function cannot($ability, $model = null)

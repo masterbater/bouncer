@@ -13,7 +13,7 @@ abstract class BaseClipboard implements Contracts\Clipboard
      * Determine if the given authority has the given ability.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return bool
      */
     public function check(Model $authority, $ability, $model = null)
@@ -44,7 +44,7 @@ abstract class BaseClipboard implements Contracts\Clipboard
     /**
      * Count the authority's roles matching the given roles.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model  $authority
      * @param  array|string  $roles
      * @return int
      */

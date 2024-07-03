@@ -11,7 +11,7 @@ class Clipboard extends BaseClipboard
      * Determine if the given authority has the given ability, and return the ability ID.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return int|bool|null
      */
     public function checkGetId(Model $authority, $ability, $model = null)
@@ -29,7 +29,7 @@ class Clipboard extends BaseClipboard
      * Determine whether the given ability request is explicitely forbidden.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return bool
      */
     protected function isForbidden(Model $authority, $ability, $model = null)
@@ -48,8 +48,8 @@ class Clipboard extends BaseClipboard
      * Returns null if the ability is not allowed.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
+     * @return \MongoDB\Laravel\Eloquent\Model|null
      */
     protected function getAllowingAbility(Model $authority, $ability, $model = null)
     {
@@ -64,9 +64,9 @@ class Clipboard extends BaseClipboard
     /**
      * Get the query for where the given authority has the given ability.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $authority
+     * @param  \MongoDB\Laravel\Eloquent\Model  $authority
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @param  bool  $allowed
      * @return \Illuminate\Database\Eloquent\Builder
      */

@@ -26,7 +26,7 @@ class AbilitiesForModel
      * Constrain a query to an ability for a specific model or wildcard.
      *
      * @param  \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $model
      * @param  bool  $strict
      * @return void
      */

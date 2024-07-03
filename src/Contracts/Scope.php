@@ -18,7 +18,7 @@ interface Scope
     /**
      * Scope the given model to the current tenant.
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \MongoDB\Laravel\Eloquent\Model
      */
     public function applyToModel(Model $model);
 

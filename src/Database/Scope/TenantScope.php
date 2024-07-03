@@ -3,7 +3,7 @@
 namespace Silber\Bouncer\Database\Scope;
 
 use Illuminate\Database\Eloquent\Builder;
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope as EloquentScope;
 use Silber\Bouncer\Database\Models;
 
@@ -25,8 +25,8 @@ class TenantScope implements EloquentScope
      *
      * @return void
      */
-    public function apply(Builder $query, Model $model)
+    public function apply(Builder $builder,  $model)
     {
-        Models::scope()->applyToModelQuery($query, $model->getTable());
+        Models::scope()->applyToModelQuery($builder, $model->getTable());
     }
 }

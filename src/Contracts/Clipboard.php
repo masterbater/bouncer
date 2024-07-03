@@ -10,7 +10,7 @@ interface Clipboard
      * Determine if the given authority has the given ability.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return bool
      */
     public function check(Model $authority, $ability, $model = null);
@@ -19,7 +19,7 @@ interface Clipboard
      * Determine if the given authority has the given ability, and return the ability ID.
      *
      * @param  string  $ability
-     * @param  \Illuminate\Database\Eloquent\Model|string|null  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string|null  $model
      * @return int|bool|null
      */
     public function checkGetId(Model $authority, $ability, $model = null);

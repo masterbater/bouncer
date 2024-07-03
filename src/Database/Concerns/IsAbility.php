@@ -63,7 +63,7 @@ trait IsAbility
      */
     public function hasConstraints()
     {
-        return ! empty($this->options['constraints']);
+        return !empty($this->options['constraints']);
     }
 
     /**
@@ -99,7 +99,7 @@ trait IsAbility
     /**
      * Create a new ability for a specific model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $model
      * @param  string|array  $attributes
      * @return static
      */
@@ -115,7 +115,7 @@ trait IsAbility
     /**
      * Make a new ability for a specific model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $model
      * @param  string|array  $attributes
      * @return static
      */
@@ -179,11 +179,11 @@ trait IsAbility
         $slug = $this->attributes['name'];
 
         if ($this->attributes['entity_type'] !== null) {
-            $slug .= '-'.$this->attributes['entity_type'];
+            $slug .= '-' . $this->attributes['entity_type'];
         }
 
         if ($this->attributes['entity_id'] !== null) {
-            $slug .= '-'.$this->attributes['entity_id'];
+            $slug .= '-' . $this->attributes['entity_id'];
         }
 
         if ($this->attributes['only_owned']) {
@@ -215,7 +215,7 @@ trait IsAbility
     {
         $names = (array) $name;
 
-        if (! $strict && $name !== '*') {
+        if (!$strict && $name !== '*') {
             $names[] = '*';
         }
 
@@ -237,7 +237,7 @@ trait IsAbility
      * Constrain a query to an ability for a specific model.
      *
      * @param  \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Model|string  $model
+     * @param  \MongoDB\Laravel\Eloquent\Model|string  $model
      * @param  bool  $strict
      * @return void
      */
