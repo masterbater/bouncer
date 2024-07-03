@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer;
 
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use Silber\Bouncer\Database\Queries\Abilities;
 
 class Clipboard extends BaseClipboard

@@ -4,7 +4,7 @@ namespace Silber\Bouncer\Database;
 
 use App\User;
 use Closure;
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Query\Builder;
 use Silber\Bouncer\Contracts\Scope as ScopeContract;

@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Conductors;
 
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use Silber\Bouncer\Database\Models;
 use Silber\Bouncer\Database\Role;
 use Silber\Bouncer\Helpers;

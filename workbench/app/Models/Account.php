@@ -2,7 +2,7 @@
 
 namespace Workbench\App\Models;
 
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use Silber\Bouncer\Database\Concerns\Authorizable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 
