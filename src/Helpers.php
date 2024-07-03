@@ -3,7 +3,7 @@
 namespace Silber\Bouncer;
 
 use App\User;
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use Silber\Bouncer\Database\Models;

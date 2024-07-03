@@ -4,7 +4,7 @@ namespace Silber\Bouncer;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Contracts\Auth\Access\Gate;
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use InvalidArgumentException;
 
 class Guard

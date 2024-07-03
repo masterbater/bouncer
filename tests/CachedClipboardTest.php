@@ -4,7 +4,7 @@ namespace Silber\Bouncer\Tests;
 
 use Illuminate\Cache\ArrayStore;
 use Illuminate\Database\Eloquent\Collection;
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use PHPUnit\Framework\Attributes\Test;
 use Silber\Bouncer\CachedClipboard;
 use Silber\Bouncer\Contracts\Clipboard as ClipboardContract;

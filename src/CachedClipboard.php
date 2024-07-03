@@ -5,7 +5,7 @@ namespace Silber\Bouncer;
 use Illuminate\Cache\TaggedCache;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Database\Eloquent\Collection;
-use MongoDB\Laravel\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model as Model;
 use Illuminate\Support\Collection as BaseCollection;
 use Silber\Bouncer\Database\Models;
 
