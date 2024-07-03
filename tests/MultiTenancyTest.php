@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Tests;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;

@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class Ability extends Model
 {

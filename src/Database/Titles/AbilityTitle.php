@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Titles;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class AbilityTitle extends Title

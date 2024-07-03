@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Constraints;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 interface Constrainer
 {

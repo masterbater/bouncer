@@ -5,7 +5,7 @@ namespace Silber\Bouncer\Tests;
 use Illuminate\Auth\Access\Gate;
 use Illuminate\Container\Container;
 use Illuminate\Database\DatabaseManager;
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase;
 use Silber\Bouncer\Bouncer;

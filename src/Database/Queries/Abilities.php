@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Queries;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Models;
 
 class Abilities

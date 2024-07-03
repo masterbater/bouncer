@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Conductors\Concerns;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;

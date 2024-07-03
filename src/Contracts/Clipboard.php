@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Contracts;
 
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 interface Clipboard
 {

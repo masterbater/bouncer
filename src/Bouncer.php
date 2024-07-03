@@ -6,7 +6,7 @@ use Illuminate\Container\Container;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
 use Illuminate\Contracts\Cache\Store;
-use MongoDB\Laravel\Eloquent\Model as Model;
+use MongoDB\Laravel\Eloquent\Model;
 use RuntimeException;
 use Silber\Bouncer\Contracts\Scope;
 use Silber\Bouncer\Database\Models;
