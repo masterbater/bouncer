@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Constraints;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Silber\Bouncer\Helpers;
 
@@ -144,7 +144,7 @@ class Group implements Constrainer
      */
     public function equals(Constrainer $constrainer)
     {
-        if (! $constrainer instanceof static) {
+        if (!$constrainer instanceof static) {
             return false;
         }
 
@@ -153,7 +153,7 @@ class Group implements Constrainer
         }
 
         foreach ($this->constraints as $index => $constraint) {
-            if (! $constrainer->constraints[$index]->equals($constraint)) {
+            if (!$constrainer->constraints[$index]->equals($constraint)) {
                 return false;
             }
         }

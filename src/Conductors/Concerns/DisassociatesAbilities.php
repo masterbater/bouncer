@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Conductors\Concerns;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Ability;
 use Silber\Bouncer\Database\Models;
 
@@ -74,7 +74,8 @@ trait DisassociatesAbilities
             ->whereIn($relation->getQualifiedRelatedPivotKeyName(), $ids);
 
         return Models::scope()->applyToRelationQuery(
-            $query, $relation->getTable()
+            $query,
+            $relation->getTable()
         );
     }
 

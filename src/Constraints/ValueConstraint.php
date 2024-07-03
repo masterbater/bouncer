@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Constraints;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class ValueConstraint extends Constraint
 {

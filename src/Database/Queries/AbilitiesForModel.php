@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Queries;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Models;
 
 class AbilitiesForModel
@@ -100,7 +100,7 @@ class AbilitiesForModel
             // If the model does not exist, we want to search for blanket abilities
             // that cover all instances of this model. If it does exist, we only
             // want to find blanket abilities if we're not using strict mode.
-            if (! $model->exists || ! $strict) {
+            if (!$model->exists || !$strict) {
                 $query->whereNull("{$this->table}.entity_id");
             }
 

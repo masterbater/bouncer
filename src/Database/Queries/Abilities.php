@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Queries;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Models;
 
 class Abilities
@@ -46,10 +46,10 @@ class Abilities
             $roles = Models::table('roles');
 
             $query->from($roles)
-                ->join($permissions, $roles.'.id', '=', $permissions.'.entity_id')
+                ->join($permissions, $roles . '.id', '=', $permissions . '.entity_id')
                 ->whereColumn("{$permissions}.ability_id", "{$abilities}.id")
-                ->where($permissions.'.forbidden', ! $allowed)
-                ->where($permissions.'.entity_type', Models::role()->getMorphClass());
+                ->where($permissions . '.forbidden', !$allowed)
+                ->where($permissions . '.entity_type', Models::role()->getMorphClass());
 
             Models::scope()->applyToModelQuery($query, $roles);
             Models::scope()->applyToRelationQuery($query, $permissions);
@@ -73,9 +73,9 @@ class Abilities
             $table = $authority->getTable();
 
             $query->from($table)
-                ->join($pivot, "{$table}.{$authority->getKeyName()}", '=', $pivot.'.entity_id')
+                ->join($pivot, "{$table}.{$authority->getKeyName()}", '=', $pivot . '.entity_id')
                 ->whereColumn("{$pivot}.role_id", "{$roles}.id")
-                ->where($pivot.'.entity_type', $authority->getMorphClass())
+                ->where($pivot . '.entity_type', $authority->getMorphClass())
                 ->where("{$table}.{$authority->getKeyName()}", $authority->getKey());
 
             Models::scope()->applyToModelQuery($query, $roles);
@@ -97,9 +97,9 @@ class Abilities
             $table = $authority->getTable();
 
             $query->from($table)
-                ->join($permissions, "{$table}.{$authority->getKeyName()}", '=', $permissions.'.entity_id')
+                ->join($permissions, "{$table}.{$authority->getKeyName()}", '=', $permissions . '.entity_id')
                 ->whereColumn("{$permissions}.ability_id", "{$abilities}.id")
-                ->where("{$permissions}.forbidden", ! $allowed)
+                ->where("{$permissions}.forbidden", !$allowed)
                 ->where("{$permissions}.entity_type", $authority->getMorphClass())
                 ->where("{$table}.{$authority->getKeyName()}", $authority->getKey());
 
@@ -122,7 +122,7 @@ class Abilities
 
             $query->from($permissions)
                 ->whereColumn("{$permissions}.ability_id", "{$abilities}.id")
-                ->where("{$permissions}.forbidden", ! $allowed)
+                ->where("{$permissions}.forbidden", !$allowed)
                 ->whereNull('entity_id');
 
             Models::scope()->applyToRelationQuery($query, $permissions);

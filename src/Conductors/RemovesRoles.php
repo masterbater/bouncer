@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Conductors;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Models;
 use Silber\Bouncer\Database\Role;
 use Silber\Bouncer\Helpers;
@@ -34,7 +34,7 @@ class RemovesRoles
      */
     public function from($authority)
     {
-        if (! ($roleIds = $this->getRoleIds())) {
+        if (!($roleIds = $this->getRoleIds())) {
             return;
         }
 
@@ -100,7 +100,9 @@ class RemovesRoles
         foreach ($roleIds as $roleId) {
             foreach ($authorityIds as $authorityId) {
                 $query->orWhere($this->getDetachQueryConstraint(
-                    $roleId, $authorityId, $morphType
+                    $roleId,
+                    $authorityId,
+                    $morphType
                 ));
             }
         }

@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Titles;
 
-use Illuminate\Database\Eloquent\model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class RoleTitle extends Title
 {

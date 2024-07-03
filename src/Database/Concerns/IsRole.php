@@ -3,7 +3,7 @@
 namespace Silber\Bouncer\Database\Concerns;
 
 use App\User;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;

@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Queries\Abilities;
 
 class Clipboard extends BaseClipboard
@@ -35,7 +35,10 @@ class Clipboard extends BaseClipboard
     protected function isForbidden(Model $authority, $ability, $model = null)
     {
         return $this->getHasAbilityQuery(
-            $authority, $ability, $model, $allowed = false
+            $authority,
+            $ability,
+            $model,
+            $allowed = false
         )->exists();
     }
 
@@ -51,7 +54,10 @@ class Clipboard extends BaseClipboard
     protected function getAllowingAbility(Model $authority, $ability, $model = null)
     {
         return $this->getHasAbilityQuery(
-            $authority, $ability, $model, $allowed = true
+            $authority,
+            $ability,
+            $model,
+            $allowed = true
         )->first();
     }
 
@@ -68,7 +74,7 @@ class Clipboard extends BaseClipboard
     {
         $query = Abilities::forAuthority($authority, $allowed);
 
-        if (! $this->isOwnedBy($authority, $model)) {
+        if (!$this->isOwnedBy($authority, $model)) {
             $query->where('only_owned', false);
         }
 

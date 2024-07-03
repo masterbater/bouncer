@@ -5,7 +5,7 @@ namespace Silber\Bouncer;
 use Illuminate\Cache\TaggedCache;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Collection as BaseCollection;
 use Silber\Bouncer\Database\Models;
 
@@ -74,7 +74,10 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
         // If so, we'll return false right away, so as to not pass the check. Then,
         // we'll check if any of them have been allowed & return the matched ID.
         $forbiddenId = $this->findMatchingAbility(
-            $this->getForbiddenAbilities($authority), $applicable, $model, $authority
+            $this->getForbiddenAbilities($authority),
+            $applicable,
+            $model,
+            $authority
         );
 
         if ($forbiddenId) {
@@ -82,7 +85,10 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
         }
 
         return $this->findMatchingAbility(
-            $this->getAbilities($authority), $applicable, $model, $authority
+            $this->getAbilities($authority),
+            $applicable,
+            $model,
+            $authority
         );
     }
 
@@ -107,7 +113,7 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
             return $this->getMatchedAbilityId(
                 $abilities,
                 $applicable->map(function ($identifier) {
-                    return $identifier.'-owned';
+                    return $identifier . '-owned';
                 })
             );
         }
@@ -250,7 +256,7 @@ class CachedClipboard extends BaseClipboard implements Contracts\CachedClipboard
      */
     public function refresh($authority = null)
     {
-        if (! is_null($authority)) {
+        if (!is_null($authority)) {
             return $this->refreshFor($authority);
         }
 

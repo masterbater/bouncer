@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use InvalidArgumentException;
 use Silber\Bouncer\Database\Models;
 use Silber\Bouncer\Database\Queries\Abilities;

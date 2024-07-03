@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Constraints;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use InvalidArgumentException;
 use Silber\Bouncer\Helpers;
 
@@ -40,7 +40,9 @@ abstract class Constraint implements Constrainer
     public static function where($column, $operator, $value = null)
     {
         [$operator, $value] = static::prepareOperatorAndValue(
-            $operator, $value, func_num_args() === 2
+            $operator,
+            $value,
+            func_num_args() === 2
         );
 
         return new ValueConstraint($column, $operator, $value);
@@ -71,7 +73,9 @@ abstract class Constraint implements Constrainer
     public static function whereColumn($a, $operator, $b = null)
     {
         [$operator, $b] = static::prepareOperatorAndValue(
-            $operator, $b, func_num_args() === 2
+            $operator,
+            $b,
+            func_num_args() === 2
         );
 
         return new ColumnConstraint($a, $operator, $b);
@@ -137,7 +141,7 @@ abstract class Constraint implements Constrainer
      */
     public function equals(Constrainer $constrainer)
     {
-        if (! $constrainer instanceof static) {
+        if (!$constrainer instanceof static) {
             return false;
         }
 
@@ -160,7 +164,7 @@ abstract class Constraint implements Constrainer
             return ['=', $operator];
         }
 
-        if (! in_array($operator, ['=', '==', '!=', '<', '>', '<=', '>='])) {
+        if (!in_array($operator, ['=', '==', '!=', '<', '>', '<=', '>='])) {
             throw new InvalidArgumentException("{$operator} is not a valid operator");
         }
 
@@ -178,12 +182,18 @@ abstract class Constraint implements Constrainer
     {
         switch ($this->operator) {
             case '=':
-            case '==': return $a == $b;
-            case '!=': return $a != $b;
-            case '<':  return $a < $b;
-            case '>':  return $a > $b;
-            case '<=': return $a <= $b;
-            case '>=': return $a >= $b;
+            case '==':
+                return $a == $b;
+            case '!=':
+                return $a != $b;
+            case '<':
+                return $a < $b;
+            case '>':
+                return $a > $b;
+            case '<=':
+                return $a <= $b;
+            case '>=':
+                return $a >= $b;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Conductors\Concerns;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
@@ -24,7 +24,7 @@ trait FindsAndCreatesAbilities
             return [$abilities->getKey()];
         }
 
-        if (! is_null($model)) {
+        if (!is_null($model)) {
             return $this->getModelAbilityKeys($abilities, $model, $attributes);
         }
 
@@ -32,7 +32,7 @@ trait FindsAndCreatesAbilities
             return $this->getAbilityIdsFromMap($abilities, $attributes);
         }
 
-        if (! is_array($abilities) && ! $abilities instanceof Collection) {
+        if (!is_array($abilities) && !$abilities instanceof Collection) {
             $abilities = [$abilities];
         }
 
@@ -49,7 +49,7 @@ trait FindsAndCreatesAbilities
     protected function getAbilityIdsFromMap(array $map, array $attributes)
     {
         [$map, $list] = Helpers::partition($map, function ($value, $key) {
-            return ! is_int($key);
+            return !is_int($key);
         });
 
         return $map->map(function ($entity, $ability) use ($attributes) {
@@ -160,14 +160,14 @@ trait FindsAndCreatesAbilities
             return '*';
         }
 
-        if (! $model instanceof Model) {
+        if (!$model instanceof Model) {
             return new $model;
         }
 
         // Creating an ability for a non-existent model gives the authority that
         // ability on all instances of that model. If the developer passed in
         // a model instance that does not exist, it is probably a mistake.
-        if (! $model->exists) {
+        if (!$model->exists) {
             throw new InvalidArgumentException(
                 'The model does not exist. To edit access to all models, use the class name instead'
             );
@@ -194,7 +194,9 @@ trait FindsAndCreatesAbilities
         $existing = Models::ability()->simpleAbility()->whereIn('name', $abilities)->get();
 
         return $existing->merge($this->createMissingAbilities(
-            $existing, $abilities, $attributes
+            $existing,
+            $abilities,
+            $attributes
         ));
     }
 

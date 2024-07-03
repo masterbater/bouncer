@@ -3,7 +3,7 @@
 namespace Silber\Bouncer;
 
 use App\User;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use Silber\Bouncer\Database\Models;
@@ -20,7 +20,7 @@ class Helpers
      */
     public static function ensureValidLogicalOperator($operator)
     {
-        if (! in_array($operator, ['and', 'or'])) {
+        if (!in_array($operator, ['and', 'or'])) {
             throw new InvalidArgumentException(
                 "{$logicalOperator} is an invalid logical operator"
             );
@@ -35,7 +35,7 @@ class Helpers
      */
     public static function extractModelAndKeys($model, ?array $keys = null)
     {
-        if (! is_null($keys)) {
+        if (!is_null($keys)) {
             if (is_string($model)) {
                 $model = new $model;
             }
@@ -67,7 +67,7 @@ class Helpers
     public static function fillMissingKeys($array, $value, $keys)
     {
         foreach ($keys as $key) {
-            if (! array_key_exists($key, $array)) {
+            if (!array_key_exists($key, $array)) {
                 $array[$key] = $value;
             }
         }
@@ -110,7 +110,7 @@ class Helpers
      */
     public static function isAssociativeArray($array)
     {
-        if (! is_array($array)) {
+        if (!is_array($array)) {
             return false;
         }
 
@@ -127,12 +127,12 @@ class Helpers
      */
     public static function isIndexedArray($array)
     {
-        if (! is_array($array)) {
+        if (!is_array($array)) {
             return false;
         }
 
         foreach ($array as $key => $value) {
-            if (! is_numeric($key)) {
+            if (!is_numeric($key)) {
                 return false;
             }
         }
@@ -150,11 +150,11 @@ class Helpers
         // Soft deleting models is controlled by adding the SoftDeletes trait
         // to the model. Instead of recursively looking for that trait, we
         // will check for the existence of the `isForceDeleting` method.
-        if (! method_exists($model, 'isForceDeleting')) {
+        if (!method_exists($model, 'isForceDeleting')) {
             return false;
         }
 
-        return ! $model->isForceDeleting();
+        return !$model->isForceDeleting();
     }
 
     /**
@@ -207,7 +207,7 @@ class Helpers
         $partitions = [new Collection, new Collection];
 
         foreach ($items as $key => $item) {
-            $partitions[(int) ! $callback($item, $key)][$key] = $item;
+            $partitions[(int) !$callback($item, $key)][$key] = $item;
         }
 
         return new Collection($partitions);

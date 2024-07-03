@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Titles;
 
-use Illuminate\Database\Eloquent\model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class AbilityTitle extends Title
@@ -19,7 +19,7 @@ class AbilityTitle extends Title
         } elseif ($this->isSimpleAbility($ability)) {
             $this->title = $this->humanize($ability->name);
         } elseif ($this->isRestrictedOwnershipAbility($ability)) {
-            $this->title = $this->humanize($ability->name.' everything owned');
+            $this->title = $this->humanize($ability->name . ' everything owned');
         } elseif ($this->isGeneralManagementAbility($ability)) {
             $this->title = $this->getBlanketModelAbilityTitle($ability);
         } elseif ($this->isBlanketModelAbility($ability)) {
@@ -27,7 +27,7 @@ class AbilityTitle extends Title
         } elseif ($this->isSpecificModelAbility($ability)) {
             $this->title = $this->getSpecificModelAbilityTitle($ability);
         } elseif ($this->isGlobalActionAbility($ability)) {
-            $this->title = $this->humanize($ability->name.' everything');
+            $this->title = $this->humanize($ability->name . ' everything');
         }
     }
 
@@ -81,7 +81,7 @@ class AbilityTitle extends Title
     {
         return $ability->name === '*'
             && $ability->entity_type !== '*'
-            && ! is_null($ability->entity_type)
+            && !is_null($ability->entity_type)
             && is_null($ability->entity_id);
     }
 
@@ -94,7 +94,7 @@ class AbilityTitle extends Title
     {
         return $ability->name !== '*'
             && $ability->entity_type !== '*'
-            && ! is_null($ability->entity_type)
+            && !is_null($ability->entity_type)
             && is_null($ability->entity_id);
     }
 
@@ -106,8 +106,8 @@ class AbilityTitle extends Title
     protected function isSpecificModelAbility(Model $ability)
     {
         return $ability->entity_type !== '*'
-            && ! is_null($ability->entity_type)
-            && ! is_null($ability->entity_id);
+            && !is_null($ability->entity_type)
+            && !is_null($ability->entity_id);
     }
 
     /**
@@ -144,7 +144,7 @@ class AbilityTitle extends Title
      */
     protected function getBlanketModelAbilityTitle(Model $ability, $name = 'manage')
     {
-        return $this->humanize($name.' '.$this->getPluralName($ability->entity_type));
+        return $this->humanize($name . ' ' . $this->getPluralName($ability->entity_type));
     }
 
     /**
@@ -157,7 +157,7 @@ class AbilityTitle extends Title
         $name = $ability->name === '*' ? 'manage' : $ability->name;
 
         return $this->humanize(
-            $name.' '.$this->basename($ability->entity_type).' #'.$ability->entity_id
+            $name . ' ' . $this->basename($ability->entity_type) . ' #' . $ability->entity_id
         );
     }
 

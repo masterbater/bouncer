@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Contracts;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 interface Scope

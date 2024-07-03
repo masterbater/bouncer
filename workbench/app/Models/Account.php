@@ -2,7 +2,7 @@
 
 namespace Workbench\App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Database\Concerns\Authorizable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 

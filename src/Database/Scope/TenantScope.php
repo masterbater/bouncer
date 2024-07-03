@@ -3,7 +3,7 @@
 namespace Silber\Bouncer\Database\Scope;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope as EloquentScope;
 use Silber\Bouncer\Database\Models;
 

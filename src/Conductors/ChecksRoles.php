@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Conductors;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Silber\Bouncer\Contracts\Clipboard;
 
 class ChecksRoles

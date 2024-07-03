@@ -4,7 +4,7 @@ namespace Silber\Bouncer\Database;
 
 use App\User;
 use Closure;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Query\Builder;
 use Silber\Bouncer\Contracts\Scope as ScopeContract;
@@ -113,7 +113,7 @@ class Models
      */
     public static function scope(?ScopeContract $scope = null)
     {
-        if (! is_null($scope)) {
+        if (!is_null($scope)) {
             return static::$scope = $scope;
         }
 
@@ -187,7 +187,7 @@ class Models
         } elseif (isset(static::$ownership['*'])) {
             $attribute = static::$ownership['*'];
         } else {
-            $attribute = strtolower(static::basename($authority)).'_id';
+            $attribute = strtolower(static::basename($authority)) . '_id';
         }
 
         return static::isOwnedVia($attribute, $authority, $model);
@@ -286,7 +286,7 @@ class Models
      */
     protected static function basename($class)
     {
-        if (! is_string($class)) {
+        if (!is_string($class)) {
             $class = get_class($class);
         }
 

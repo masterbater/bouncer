@@ -3,7 +3,7 @@
 namespace Silber\Bouncer\Contracts;
 
 use Illuminate\Contracts\Cache\Store;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 interface CachedClipboard extends Clipboard
 {

@@ -4,7 +4,7 @@ namespace Silber\Bouncer;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Contracts\Auth\Access\Gate;
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use InvalidArgumentException;
 
 class Guard
@@ -79,7 +79,7 @@ class Guard
             return $this->slot;
         }
 
-        if (! in_array($slot, ['before', 'after'])) {
+        if (!in_array($slot, ['before', 'after'])) {
             throw new InvalidArgumentException(
                 "{$slot} is an invalid gate slot"
             );
@@ -143,7 +143,7 @@ class Guard
      */
     protected function runAfterCallback($authority, $ability, $result, $arguments = [])
     {
-        if (! is_null($result)) {
+        if (!is_null($result)) {
             return $result;
         }
 
@@ -170,7 +170,7 @@ class Guard
     protected function checkAtClipboard(Model $authority, $ability, $model)
     {
         if ($id = $this->clipboard->checkGetId($authority, $ability, $model)) {
-            return $this->allow('Bouncer granted permission via ability #'.$id);
+            return $this->allow('Bouncer granted permission via ability #' . $id);
         }
 
         // If the response from "checkGetId" is "false", then this ability

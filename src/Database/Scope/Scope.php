@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Scope;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Silber\Bouncer\Contracts\Scope as ScopeContract;
 use Silber\Bouncer\Database\Models;
@@ -81,7 +81,7 @@ class Scope implements ScopeContract
      */
     public function appendToCacheKey($key)
     {
-        return is_null($this->scope) ? $key : $key.'-'.$this->scope;
+        return is_null($this->scope) ? $key : $key . '-' . $this->scope;
     }
 
     /**
@@ -91,7 +91,7 @@ class Scope implements ScopeContract
      */
     public function applyToModel(Model $model)
     {
-        if (! $this->onlyScopeRelations && ! is_null($this->scope)) {
+        if (!$this->onlyScopeRelations && !is_null($this->scope)) {
             $model->scope = $this->scope;
         }
 
@@ -161,7 +161,7 @@ class Scope implements ScopeContract
         return $query->where(function ($query) use ($table) {
             $query->whereNull("{$table}.scope");
 
-            if (! is_null($this->scope)) {
+            if (!is_null($this->scope)) {
                 $query->orWhere("{$table}.scope", $this->scope);
             }
         });
@@ -189,7 +189,7 @@ class Scope implements ScopeContract
             return [];
         }
 
-        if (! $this->scopeRoleAbilities && $this->isRoleClass($authority)) {
+        if (!$this->scopeRoleAbilities && $this->isRoleClass($authority)) {
             return [];
         }
 

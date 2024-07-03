@@ -2,7 +2,7 @@
 
 namespace Silber\Bouncer\Database\Titles;
 
-use Illuminate\Database\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 use Illuminate\Support\Str;
 
 abstract class Title
