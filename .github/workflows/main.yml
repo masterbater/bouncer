@@ -19,16 +19,20 @@ jobs:
       fail-fast: false
       matrix:
         laravel: [11.*]
-        php: [8.2, 8.3]
+        php: [8.3]
 
     name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
 
     services:
       mongodb:
-        image: mongo:latest
+        image: bitnami/mongodb:latest
         ports:
           - 27017:27017
         options: > 
+          -e MONGODB_REPLICA_SET_MODE=primary 
+          -e MONGODB_REPLICA_SET_NAME=rs0 
+          -e MONGODB_PORT_NUMBER=27017 
+          -e MONGODB_ROOT_PASSWORD=rootpassword 
           --health-cmd="mongo --eval 'db.runCommand({ ping: 1 })'" 
           --health-interval=10s 
           --health-timeout=5s 
@@ -44,9 +48,12 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, bcmath, soap, intl, gd, exif, iconv, imagick, mongodb
 
-      - name: Start MongoDB with Replica Set
+      - name: Wait for MongoDB to start
+        run: sleep 20
+
+      - name: Initialize MongoDB Replica Set
         run: |
-          docker exec mongodb mongo --eval 'rs.initiate({_id: "rs0", members: [{_id: 0, host: "localhost:27017"}]})'
+          mongo --host localhost --port 27017 --eval 'rs.initiate()'
           sleep 10
 
       - name: Install dependencies
@@ -62,6 +69,8 @@ jobs:
           echo "DB_HOST=127.0.0.1" >> .env
           echo "DB_PORT=27017" >> .env
           echo "DB_DATABASE=your_database_name" >> .env
+          echo "DB_USERNAME=root" >> .env
+          echo "DB_PASSWORD=rootpassword" >> .env
           echo "DB_OPTIONS=replicaSet=rs0" >> .env
 
       - name: Run tests
