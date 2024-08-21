@@ -32,11 +32,7 @@ jobs:
           -e MONGODB_REPLICA_SET_MODE=primary 
           -e MONGODB_REPLICA_SET_NAME=rs0 
           -e MONGODB_PORT_NUMBER=27017 
-          -e MONGODB_ROOT_PASSWORD=rootpassword 
-          --health-cmd="mongo --eval 'db.runCommand({ ping: 1 })'" 
-          --health-interval=10s 
-          --health-timeout=5s 
-          --health-retries=5
+          -e MONGODB_ROOT_PASSWORD=rootpassword
 
     steps:
       - name: Check out code
@@ -50,11 +46,6 @@ jobs:
 
       - name: Wait for MongoDB to start
         run: sleep 20
-
-      - name: Initialize MongoDB Replica Set
-        run: |
-          mongo --host localhost --port 27017 --eval 'rs.initiate()'
-          sleep 10
 
       - name: Install dependencies
         run: |
