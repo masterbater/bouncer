@@ -23,6 +23,20 @@ jobs:
 
     name: Laravel ${{ matrix.laravel }}, PHP ${{ matrix.php }}
 
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+        options: > 
+          --replSet rs0 
+          --bind_ip localhost 
+          --port 27017 
+          --health-cmd="mongo --eval 'db.runCommand({ ping: 1 })'" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=5
+
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -31,12 +45,27 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, bcmath, soap, intl, gd, exif, iconv, imagick, mongodb
 
       - name: Install dependencies
         run: |
             composer require --dev "illuminate/auth:${{ matrix.laravel }}" "illuminate/cache:${{ matrix.laravel }}" "illuminate/container:${{ matrix.laravel }}" "illuminate/contracts:${{ matrix.laravel }}" "illuminate/database:${{ matrix.laravel }}" "illuminate/console:${{ matrix.laravel }}" "illuminate/events:${{ matrix.laravel }}" --no-interaction --no-update
             composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
+
+      - name: Initialize MongoDB Replica Set
+        run: |
+          mongo --eval 'rs.initiate({_id: "rs0", members: [{_id: 0, host: "localhost:27017"}]})'
+          sleep 10
+
+      - name: Set up environment for MongoDB
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          echo "DB_CONNECTION=mongodb" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=27017" >> .env
+          echo "DB_DATABASE=your_database_name" >> .env
+          echo "DB_OPTIONS=replicaSet=rs0" >> .env
 
       - name: Run tests
         run: vendor/bin/pest --do-not-cache-result
